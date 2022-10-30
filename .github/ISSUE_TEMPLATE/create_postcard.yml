@@ -1,0 +1,31 @@
+---
+name: Create Winter postcard
+title: "Create a postcard"
+description: Create a postcard.
+labels:
+  - postcardbot
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Create a winter postcard.
+
+        By opening an issue you will get a postcard generated for your friends and family.
+
+  - type: dropdown
+    attributes:
+      label: "Postcard type"
+      description: a type of the postcard that will be used
+      options:
+        - regular postcard
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "Postrard reciever name"
+      description: The name of the person that will recieve the postcard
+      placeholder: My best friend
+    validations:
+      required: true
