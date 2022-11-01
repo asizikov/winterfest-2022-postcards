@@ -15,7 +15,7 @@ body:
 
   - type: dropdown
     attributes:
-      label: "Postcard type"
+      label: ">>>postcard-type<<<"
       description: a type of the postcard that will be used
       options:
         - regular postcard
@@ -24,7 +24,7 @@ body:
 
   - type: input
     attributes:
-      label: "Postrard reciever name"
+      label: ">>>postrard-reciever-name<<<"
       description: The name of the person that will recieve the postcard
       placeholder: My best friend
     validations:

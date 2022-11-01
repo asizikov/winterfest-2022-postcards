@@ -1,0 +1,26 @@
+name: ✉️ Create Postcard Form Opened
+
+on: 
+  issues: 
+    types:
+      - opened
+
+jobs: 
+  execute_workflow:
+    if: | 
+      contains(github.event.issue.labels.*.name, 'postcardbot')
+
+    runs-on: Ubuntu-latest
+
+    steps: 
+      - name: Extract Form Template Data
+        id: issue_payload
+        uses: peter-murray/issue-forms-body-parser@v3
+        with:
+          separator: '###'
+          issue_id: ${{ github.event.issue.number }}
+          label_marker_start: '>>>'
+          label_marker_end: '<<<'
+      - name: Show parsed data
+        run: |
+          echo "${{ steps.issue_payload.outputs.payload }}"
