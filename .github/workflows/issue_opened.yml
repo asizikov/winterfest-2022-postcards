@@ -25,3 +25,5 @@ jobs:
       - name: 🖨 Print parsed data
         run: |
           echo "${{ steps.issue_payload.outputs.payload }}"
+      - name: ⚙️ Seup Imagemagick
+        uses: mfinelli/setup-imagemagick@67fecad2dcf09148b5e1e4c14917fbf06265975a
