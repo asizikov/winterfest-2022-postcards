@@ -23,3 +23,8 @@ jobs:
       run: |
         TEMPLATE_PATH=templates/$POSTCARD_TEMPLATE
         convert -pointsize 60 -fill red -draw "text 800,1000 'TO: $POST_CARD_RECIEVER_NAME'" $TEMPLATE_PATH output/postcard_out.jpg
+    - name: 💾 Save results
+      uses: actions/upload-artifact@v3
+      with:
+        name: postcard.jpg
+        path: output
