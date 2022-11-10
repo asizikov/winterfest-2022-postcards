@@ -19,7 +19,7 @@ jobs:
     - name: 🪄 Generate image
       env:
         POST_CARD_RECIEVER_NAME: ${{ inputs.postcard_reciever_name }}
-        POSTCARD_TEMPLATE: ${{ inputs.postcard_template }}
+        POSTCARD_TEMPLATE: "${{ inputs.postcard_template }}".jpg
       run: |
         TEMPLATE_PATH=templates/$POSTCARD_TEMPLATE
         convert -pointsize 60 -fill red -draw "text 800,1000 'TO: $POST_CARD_RECIEVER_NAME'" $TEMPLATE_PATH output/postcard_out.jpg
