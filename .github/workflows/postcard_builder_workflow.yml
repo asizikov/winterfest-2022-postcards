@@ -20,7 +20,7 @@ jobs:
       run: |
         sudo apt-get install ghostscript
         sudo apt-get install fonts-freefont-otf
-
+        convert -list font 
     - name: 🪄 Generate image
       env:
         POST_CARD_RECIEVER_NAME: ${{ inputs.postcard_reciever_name }}
