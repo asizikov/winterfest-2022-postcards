@@ -20,14 +20,13 @@ jobs:
       run: |
         sudo apt-get install ghostscript
         sudo apt-get install fonts-freefont-otf
-        convert -list font 
     - name: 🪄 Generate image
       env:
         POST_CARD_RECIEVER_NAME: ${{ inputs.postcard_reciever_name }}
         POSTCARD_TEMPLATE_NAME: ${{ inputs.postcard_template }}
       run: |
         TEMPLATE_PATH=templates/$POSTCARD_TEMPLATE_NAME.jpg
-        convert -pointsize 60 -fill red -draw "text 800,1000 'TO: $POST_CARD_RECIEVER_NAME'" $TEMPLATE_PATH output/postcard_out.jpg
+        convert -pointsize 60 -fill red -font Z003-Medium-Italic -draw "text 800,1000 'TO: $POST_CARD_RECIEVER_NAME'" $TEMPLATE_PATH output/postcard_out.jpg
     - name: 💾 Save results
       uses: actions/upload-artifact@v3
       with:
