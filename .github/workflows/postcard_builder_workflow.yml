@@ -17,7 +17,10 @@ jobs:
     - name: ⚙️ Setup Imagemagick
       uses: mfinelli/setup-imagemagick@7ac36a120d751ce8fe9b1ae50a02738f25c17076
     - name: ✍️ Install Fonts
-      run: sudo apt-get install fonts-freefont-otf
+      run: |
+        sudo apt-get install ghostscript
+        sudo apt-get install fonts-freefont-otf
+
     - name: 🪄 Generate image
       env:
         POST_CARD_RECIEVER_NAME: ${{ inputs.postcard_reciever_name }}
