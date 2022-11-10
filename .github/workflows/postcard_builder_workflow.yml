@@ -1,6 +1,6 @@
 on:
   workflow_call:
-  inputs:
+    inputs:
       postcard_template:
         required: true
         type: string

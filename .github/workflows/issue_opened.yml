@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "${{ steps.issue_payload.outputs.payload }}"
   call-postcard-generator:
-    uses: ./.github/workflows/postcard_builder_workflow
+    uses: ./.github/workflows/postcard_builder_workflow.yml
     with:
       postcard_template: "value"
       postcard_reciever_name: "value2"
