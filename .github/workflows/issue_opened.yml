@@ -7,7 +7,7 @@ on:
       - reopened
 
 jobs: 
-    extract_postcard_data:
+  extract_postcard_data:
     name: 🕵🏻‍♂️ Extract Postcard Data
     if: | 
       contains(github.event.issue.labels.*.name, 'postcardbot')
