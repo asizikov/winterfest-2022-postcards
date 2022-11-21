@@ -7,10 +7,10 @@ on:
         type: string
 
 jobs:
-  download_artifact:
+  upload_file_to_azure_job:
     permissions:
       id-token: write
-    name: 📥 Download artifact
+    name: 📥 Download artifact and upload it to ☁️ Azure
     runs-on: ubuntu-latest
     steps:
     - name: 📥 Download artifact
@@ -25,5 +25,6 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     - name: 📤 Upload artifact to Azure
       run: |
+        ls
         mv ${{ inputs.artifact_name }} bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg
         az storage blob upload --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}  --file bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg
