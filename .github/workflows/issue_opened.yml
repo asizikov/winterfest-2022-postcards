@@ -14,6 +14,9 @@ jobs:
 
     runs-on: Ubuntu-latest
 
+    outputs:
+      postcard_payload : ${{ steps.issue_payload.outputs.payload }}
+
     steps: 
       - name: 🕵🏻‍♂️ Extract Form Data
         id: issue_payload
