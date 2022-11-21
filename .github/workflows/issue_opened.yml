@@ -28,7 +28,7 @@ jobs:
           label_marker_end: '<<<'
       - name: 🖨 Print parsed data
         run: |
-          echo "${{ steps.issue_payload.outputs.payload }}" | jq .
+          echo '${{ steps.issue_payload.outputs.payload }}' | jq .
 
   call-postcard-generator:
     name: 📡 Invoke postcard generator
