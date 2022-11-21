@@ -47,6 +47,7 @@ jobs:
       - call-postcard-generator
     with:
       artifact_name: postcard.jpg
+    secrets: inherit
 
   add-postcard-to-issue:
     name: 📨 Add postcard to issue
