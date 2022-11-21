@@ -12,6 +12,10 @@ jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
     steps:
+    - name: 🖨 Print input data
+      run: |
+        echo '${{ inputs.postcard_template }}'
+        echo '${{ inputs.postcard_reciever_name }}'
     - name: ⬇️ Checkout files
       uses: actions/checkout@v3
     - name: ⚙️ Setup Imagemagick
