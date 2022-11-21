@@ -21,6 +21,7 @@ jobs:
       run: |
         echo '${{ inputs.postcard_template }}'
         echo '${{ inputs.postcard_reciever_name }}'
+        echo '${{ inputs.json_payload }}' | jq .
     - name: ⬇️ Checkout files
       uses: actions/checkout@v3
     - name: ⚙️ Setup Imagemagick
