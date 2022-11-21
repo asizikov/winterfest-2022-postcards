@@ -37,6 +37,19 @@ jobs:
       - extract_postcard_data
     with:
       json_payload: ${{ needs.extract_postcard_data.outputs.postcard_payload }}
-      postcard_template: '${{ fromJson(needs.extract_postcard_data.outputs.postcard_payload).postcard-type }}'
-      postcard_reciever_name: '${{ needs.extract_postcard_data.outputs.postcard_payload.postrard-reciever-name }}'
+      postcard_template: ${{ fromJson(needs.extract_postcard_data.outputs.postcard_payload).postcard-type }}
+      postcard_reciever_name: ${{ fromJson(needs.extract_postcard_data.outputs.postcard_payload).postrard-reciever-name }}
+
+  add-postcard-to-issue:
+    name: 📨 Add postcard to issue
+    needs: 
+      - call-postcard-generator
+    runs-on: Ubuntu-latest
+    steps:
+      - name: 📨 Add postcard to issue
+        uses: peter-murray/add-issue-comment@v3
+        with:
+          issue-id: ${{ github.event.issue.number }}
+          comment: |
+            Here is your postcard 📬:
   
