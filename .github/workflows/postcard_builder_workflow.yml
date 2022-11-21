@@ -1,6 +1,10 @@
 on:
   workflow_call:
     inputs:
+      json_payload:
+        description: 'JSON payload'
+        required: false
+        type: string
       postcard_template:
         required: true
         type: string
