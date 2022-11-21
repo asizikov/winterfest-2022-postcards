@@ -24,7 +24,6 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     - name: 📤 Upload artifact to Azure
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-          az storage blob upload --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}  --file $(uuidgen).jpg
+      run: |
+        mv ${{ inputs.artifact_name }} bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg
+        az storage blob upload --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}  --file bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg
