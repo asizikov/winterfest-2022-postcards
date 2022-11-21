@@ -53,6 +53,7 @@ jobs:
     name: 📨 Add postcard to issue
     needs: 
       - call-postcard-generator
+      - upload-postcard-to-azure
     runs-on: Ubuntu-latest
     steps:
       - name: 📨 Add postcard to issue
@@ -61,4 +62,6 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Here is your postcard 📬:
+            
+            ![postcard](${{ needs.upload-postcard-to-azure.outputs.postcard_file_url }})
   
