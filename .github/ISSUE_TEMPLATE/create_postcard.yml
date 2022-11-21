@@ -18,7 +18,8 @@ body:
       label: ">>>postcard-type<<<"
       description: a type of the postcard that will be used
       options:
-        - regular postcard
+        - snowman
+        - vintage
     validations:
       required: true
 
