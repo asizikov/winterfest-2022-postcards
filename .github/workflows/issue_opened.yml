@@ -47,9 +47,9 @@ jobs:
     runs-on: Ubuntu-latest
     steps:
       - name: 📨 Add postcard to issue
-        uses: peter-murray/add-issue-comment@v3
+        uses: peter-evans/create-or-update-comment@v2
         with:
-          issue-id: ${{ github.event.issue.number }}
-          comment: |
+          issue-number: ${{ github.event.issue.number }}
+          body: |
             Here is your postcard 📬:
   
