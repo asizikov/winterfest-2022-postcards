@@ -36,6 +36,6 @@ jobs:
     needs: 
       - extract_postcard_data
     with:
-      postcard_template: ${{ needs.extract_postcard_data.outputs.postcard-type }}
-      postcard_reciever_name: ${{ needs.extract_postcard_data.outputs.postcard_payload.postrard-reciever-name }}
+      postcard_template: '${{ needs.extract_postcard_data.outputs.postcard_payload.postcard-type }}'
+      postcard_reciever_name: '${{ needs.extract_postcard_data.outputs.postcard_payload.postrard-reciever-name }}'
   
