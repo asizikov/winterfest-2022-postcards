@@ -7,14 +7,15 @@ on:
       - reopened
 
 jobs: 
-  execute_workflow:
+    extract_postcard_data:
+    name: 🕵🏻‍♂️ Extract Postcard Data
     if: | 
       contains(github.event.issue.labels.*.name, 'postcardbot')
 
     runs-on: Ubuntu-latest
 
     steps: 
-      - name: 🕵🏻‍♂️ Extract Form Template Data
+      - name: 🕵🏻‍♂️ Extract Form Data
         id: issue_payload
         uses: peter-murray/issue-forms-body-parser@v3
         with:
@@ -25,7 +26,9 @@ jobs:
       - name: 🖨 Print parsed data
         run: |
           echo "${{ steps.issue_payload.outputs.payload }}"
+
   call-postcard-generator:
+    name: 📡 Invoke postcard generator
     uses: ./.github/workflows/postcard_builder_workflow.yml
     with:
       postcard_template: "snowman"
