@@ -41,6 +41,7 @@ jobs:
       id: upload_to_azure
       run: |        
         az storage account list --query "[].name" -o tsv
-        mv postcard_out.jpg bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg
-        az storage blob upload --account-name ${{ inputs.azure_storage_account_name }} --container '$web' --file bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg
-        echo 'file_url:${{ inputs.azure_storage_account_name}}.${{ inputs.azure_site_domain }}/bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg' >> $GITHUB_OUTPUT
+        new_postcard_file_name=$(date +%s).jpg
+        mv postcard_out.jpg $new_postcard_file_name
+        az storage blob upload --account-name ${{ inputs.azure_storage_account_name }} --container '$web' --file $new_postcard_file_name
+        echo 'file_url=${{ inputs.azure_storage_account_name}}.${{ inputs.azure_site_domain }}/$new_postcard_file_name' >> $GITHUB_OUTPUT
