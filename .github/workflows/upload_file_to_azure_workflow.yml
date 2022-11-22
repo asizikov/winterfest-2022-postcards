@@ -47,8 +47,8 @@ jobs:
         echo $new_postcard_file_name
         file_url_output=https://${{ inputs.azure_storage_account_name }}.${{ inputs.azure_site_domain }}/$new_postcard_file_name
         echo $file_url_output
-        echo "file_url=$file_url_output" >> $GITHUB_ENV
-        cat $GITHUB_ENV
+        echo "file_url=$file_url_output" >> $GITHUB_OUTPUT
+        cat $GITHUB_OUTPUT
   debug_log:
     needs: upload_file_to_azure_job
     runs-on: ubuntu-latest
