@@ -58,6 +58,9 @@ jobs:
       - upload-postcard-to-azure
     runs-on: Ubuntu-latest
     steps:
+      - name: debug log
+        run: |
+          echo '${{ needs.upload-postcard-to-azure.outputs.postcard_file_url }}'
       - name: 📨 Add postcard to issue
         uses: peter-evans/create-or-update-comment@v2
         with:
