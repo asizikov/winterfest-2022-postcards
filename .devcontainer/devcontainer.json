@@ -12,11 +12,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	 "postCreateCommand": [
-		"sudo apt update", 
-		"sudo apt install imagemagick -y",
-		"mkdir output"
-	]
+	 "postCreateCommand": "/bin/sh ./post-create-command.sh"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
