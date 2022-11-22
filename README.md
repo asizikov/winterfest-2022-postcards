@@ -1,2 +1,3 @@
 # winterfest-asizikov-postcards
-a project for Winterfest 2022 demo
+❄️ GitHub Winterfest 2022 demo ☃️
+
