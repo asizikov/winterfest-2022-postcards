@@ -47,6 +47,8 @@ jobs:
       - call-postcard-generator
     with:
       artifact_name: postcard.jpg
+      azure_storage_account_name: winterfestpostcards
+      azure_site_domain: 'z6.web.core.windows.net'
     secrets: inherit
 
   add-postcard-to-issue:

@@ -5,6 +5,14 @@ on:
         description: 'Artifact name'
         required: true
         type: string
+      azure_storage_account_name:
+        description: 'Azure storage account name'
+        required: true
+        type: string
+      azure_site_domain:
+        description: 'Azure site domain'
+        required: true
+        type: string
     outputs:
       postcard_file_url:
         description: 'published impage url'
@@ -33,7 +41,6 @@ jobs:
       id: upload_to_azure
       run: |        
         az storage account list --query "[].name" -o tsv
-
         mv postcard_out.jpg bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg
-        az storage blob upload --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} --container '$web' --file bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg
-        echo 'https://winterfestpostcards.z6.web.core.windows.net/bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg' >> $GITHUB_OUTPUT
+        az storage blob upload --account-name ${{ inputs.azure_storage_account_name }} --container '$web' --file bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg
+        echo 'file_url:${{ inputs.azure_storage_account_name}}.${{ inputs.azure_site_domain }}/bb6b9ceb-1555-4600-a51f-fca39b19ce39.jpg' >> $GITHUB_OUTPUT
