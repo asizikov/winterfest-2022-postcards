@@ -49,3 +49,10 @@ jobs:
         echo $file_url_output
         echo "file_url=$file_url_output" >> $GITHUB_ENV
         cat $GITHUB_ENV
+  debug_log:
+    needs: upload_file_to_azure_job
+    runs-on: ubuntu-latest
+    steps:
+    - name: print
+      run: |
+        echo ${{ needs.upload_file_to_azure_job.outputs.postcard_file_url }}
