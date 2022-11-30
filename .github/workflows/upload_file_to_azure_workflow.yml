@@ -46,3 +46,5 @@ jobs:
         az storage blob upload --account-name ${{ inputs.azure_storage_account_name }} --container '$web' --file $new_postcard_file_name
         file_url_output=https://${{ inputs.azure_storage_account_name }}.${{ inputs.azure_site_domain }}/$new_postcard_file_name
         echo "file_url=$file_url_output" >> $GITHUB_OUTPUT
+        echo '## Postcard uploaded successfully' >> $GITHUB_STEP_SUMMARY
+        echo '* [File Location]($file_url_output)' >> $GITHUB_STEP_SUMMARY
