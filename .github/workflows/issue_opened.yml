@@ -29,6 +29,11 @@ jobs:
       - name: 🖨 Print parsed data
         run: |
           echo '${{ steps.issue_payload.outputs.payload }}' | jq .
+          echo '## Postcard data extracted successfully 📝' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          echo '${{ steps.issue_payload.outputs.payload }}' | jq . >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
 
   call-postcard-generator:
     name: 📡 Invoke postcard generator
@@ -66,4 +71,5 @@ jobs:
             Here is your postcard 📬:
             
             ![postcard](${{ needs.upload-postcard-to-azure.outputs.postcard_file_url }})
+            [Fullsize version is here](${{ needs.upload-postcard-to-azure.outputs.postcard_file_url }})
   
