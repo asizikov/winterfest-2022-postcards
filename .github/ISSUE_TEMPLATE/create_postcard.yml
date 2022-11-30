@@ -20,6 +20,7 @@ body:
       options:
         - snowman
         - vintage
+        - github
     validations:
       required: true
 
