@@ -18,9 +18,9 @@ body:
       label: ">>>postcard-type<<<"
       description: a type of the postcard that will be used
       options:
-        - ☃️ snowman
-        - 📜 vintage
-        - 🐙 github
+        - snowman
+        - vintage
+        - github
     validations:
       required: true
 
