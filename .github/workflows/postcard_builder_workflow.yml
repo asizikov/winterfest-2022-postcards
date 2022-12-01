@@ -37,7 +37,7 @@ jobs:
       run: |
         TEMPLATE_PATH=templates/$POSTCARD_TEMPLATE_NAME.jpg
         mkdir output
-        convert -pointsize 60 -fill red -font Z003-Medium-Italic -draw "text 500,920 'Happy Hollidays! Dear $POST_CARD_RECIEVER_NAME'" $TEMPLATE_PATH output/postcard_out.jpg
+        convert -pointsize 60 -fill red -font Z003-Medium-Italic -draw "text 530,120 'Happy Hollidays! Dear $POST_CARD_RECIEVER_NAME'" $TEMPLATE_PATH output/postcard_out.jpg
     - name: 💾 Save results
       uses: actions/upload-artifact@v3
       with:
