@@ -2,3 +2,4 @@
 *.yml linguist-language=YAML
 *.yaml linguist-detectable
 *.yaml linguist-language=YAML
+.github/** -linguist-vendored
